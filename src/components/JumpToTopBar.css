@@ -1,0 +1,20 @@
+.jumpToFirstMessage-container {
+  position: absolute;
+  top: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  z-index: 1;
+  pointer-events: none;
+  gap: 8px;
+}
+
+.containerMarginTop {
+  top: 48px;
+}
+
+.jumpToFirstMessage-icon {
+  width: 16px;
+  height: 16px;
+  transform: rotate(180deg);
+}

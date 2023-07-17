@@ -7,3 +7,10 @@ threads and posts)**.
 
 <!-- TODO: GIF Preview -->
 <!-- <img src="assets/preview.gif" width="400"> -->
+
+**TODO:**
+
+- Move flux hooks to a dedicated util;
+- Calculate how far the first message is;
+- Finish typing `MessagesProps`;
+- GIF Preview.

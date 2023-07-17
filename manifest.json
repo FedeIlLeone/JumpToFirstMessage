@@ -15,5 +15,6 @@
   "license": "MIT",
   "type": "replugged-plugin",
   "source": "https://github.com/FedeIlLeone/JumpToFirstMessage",
-  "renderer": "src/index.ts"
+  "renderer": "src/index.tsx",
+  "plaintextPatches": "src/plaintextPatches.ts"
 }
