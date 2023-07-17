@@ -1,18 +1,19 @@
 {
-  "id": "dev.replugged.PluginTemplate",
-  "name": "Plugin Template",
-  "description": "A plugin template",
+  "id": "dev.fedeilleone.JumpToFirstMessage",
+  "name": "JumpToFirstMessage",
+  "description": "Adds a button to jump to the first message of a channel.",
   "author": {
-    "name": "replugged",
-    "discordID": "1000992611840049192",
-    "github": "replugged-org"
+    "name": "FedeIlLeone",
+    "discordID": "403195964241739776",
+    "github": "FedeIlLeone"
   },
   "version": "1.0.0",
   "updater": {
-    "type": "github",
-    "id": "replugged-org/plugin-template"
+    "type": "store",
+    "id": "dev.fedeilleone.JumpToFirstMessage"
   },
   "license": "MIT",
   "type": "replugged-plugin",
+  "source": "https://github.com/FedeIlLeone/JumpToFirstMessage",
   "renderer": "src/index.ts"
 }

@@ -1,7 +1,7 @@
 {
-  "name": "plugin-template",
+  "name": "jumptofirstmessage",
   "version": "1.0.0",
-  "description": "A plugin template",
+  "description": "Adds a button to jump to the first message of a channel.",
   "engines": {
     "node": ">=18.0.0",
     "pnpm": ">=8.0.0"
@@ -19,18 +19,20 @@
     "lint:fix": "pnpm run prettier:fix && pnpm run eslint:fix"
   },
   "keywords": [],
-  "author": "",
+  "author": "FedeIlLeone",
   "license": "ISC",
   "devDependencies": {
-    "@types/node": "^18.15.11",
+    "@types/node": "^20.4.2",
+    "@types/react": "^18.2.15",
     "@typescript-eslint/eslint-plugin": "^5.57.0",
     "@typescript-eslint/parser": "^5.57.0",
-    "eslint": "^8.37.0",
+    "discord-types": "^1.3.3",
+    "eslint": "^8.45.0",
     "eslint-config-dmitmel": "github:dmitmel/eslint-config-dmitmel",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-react": "^7.32.2",
     "prettier": "^2.8.7",
-    "replugged": "^4.4.2",
-    "typescript": "^5.0.3"
+    "replugged": "^4.5.1",
+    "typescript": "^5.1.6"
   }
 }
