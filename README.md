@@ -10,7 +10,4 @@ threads and posts)**.
 
 **TODO:**
 
-- Move flux hooks to a dedicated util;
-- Calculate how far the first message is;
-- Finish typing `MessagesProps`;
 - GIF Preview.

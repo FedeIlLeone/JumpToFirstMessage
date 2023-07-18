@@ -1,4 +1,4 @@
-import { types } from "replugged";
+import type { types } from "replugged";
 
 const pluginExports = `window.replugged.plugins.getExports("dev.fedeilleone.JumpToFirstMessage")`;
 

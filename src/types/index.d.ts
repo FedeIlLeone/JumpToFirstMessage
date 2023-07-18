@@ -1,7 +1,6 @@
-import type { Channel } from "discord-types/general";
+import type { Channel, Message } from "discord-types/general";
 import type { ChannelMessages } from "replugged/dist/renderer/modules/common/messages";
-
-type Comparator<T> = (a: T, b: T) => boolean;
+import type { CloudUpload } from "./CloudUpload";
 
 type ChannelStreamTypes =
   | "MESSAGE"
@@ -27,6 +26,21 @@ interface ChannelStream {
   type: ChannelStreamTypes;
   unreadId?: string;
 }
+interface FileUpload {
+  attachmentsCount: number;
+  channelId: string;
+  compressionProgress: number;
+  currentSize: number;
+  draftContent: string;
+  hasImage: boolean;
+  hasVideo: boolean;
+  id: string;
+  items: CloudUpload[];
+  name: string;
+  progress: number;
+  rate: number;
+  totalPreCompressionSize: number;
+}
 
 interface MessagesProps {
   canChat?: boolean;
@@ -47,6 +61,5 @@ interface MessagesProps {
   showingSpamBanner: boolean;
   showNewMessagesBar: boolean;
   unreadCount: number;
-  /** This hasn't been typed yet */
-  uploads: unknown[];
+  uploads: FileUpload[];
 }
