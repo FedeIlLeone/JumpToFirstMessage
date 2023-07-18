@@ -55,7 +55,7 @@ export default ((props) => {
   const jumpTargetIsFirstMessage = jumpTargetId === state.firstMessage?.id;
 
   // Kinda a hacky solution, if the notice is visible then we are sure the first message has been unloaded
-  return hasNoticeAbove || channelMessages.hasMoreBefore ? (
+  return channelMessages.hasFetched && (hasNoticeAbove || channelMessages.hasMoreBefore) ? (
     <div
       className={classNames("jumpToFirstMessage-container", { containerMarginTop: hasNoticeAbove })}
       style={{

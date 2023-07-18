@@ -22,6 +22,7 @@ type useStateFromStoresObject = <T>(
   deps?: React.DependencyList,
 ) => T;
 
+// These are not "utils", but I'll put them here for now until are with replugged flux common module
 const fluxHooksMod = await webpack.waitForModule(webpack.filters.bySource("useStateFromStores"));
 
 export const useStateFromStores = webpack.getFunctionBySource<useStateFromStores>(
