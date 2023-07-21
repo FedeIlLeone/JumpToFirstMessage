@@ -1,15 +1,18 @@
 .jumpToFirstMessage-container {
   position: absolute;
-  top: 20px;
-  width: 100%;
+  top: 16px;
+  left: 16px;
+  right: 16px;
   display: flex;
   justify-content: center;
   z-index: 1;
   pointer-events: none;
   gap: 8px;
+  opacity: 0.95;
+  transition: opacity 0.15s;
 }
 
-.containerMarginTop {
+.jumpToFirstMessage-container.containerMarginTop {
   top: 48px;
 }
 
