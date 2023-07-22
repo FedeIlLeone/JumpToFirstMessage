@@ -2,13 +2,14 @@ import type { MessagesProps } from "@types";
 import classNames from "classnames";
 import { common, components, webpack } from "replugged";
 import DoubleDownArrow from "./DoubleDownArrow";
+import { cfg } from "../utils/PluginSettingsUtils";
 
 import "./JumpToTopBar.css";
 
 const { React, messages } = common;
-const { Clickable, Loader } = components;
+const { Clickable, Loader: Spinner } = components;
 
-type JumpToTopBarProps = Pick<MessagesProps, "channel" | "messages">;
+type JumpToTopBarProps = Pick<MessagesProps, "channel" | "messages" | "unreadCount">;
 
 export type JumpToTopBarType = React.FC<JumpToTopBarProps>;
 
@@ -18,7 +19,7 @@ const classes = await webpack.waitForProps<Record<"button" | "jumpSpinner" | "na
 );
 
 export default ((props) => {
-  const { channel, messages: channelMessages } = props;
+  const { channel, messages: channelMessages, unreadCount } = props;
   const { jumpTargetId, loadingMore } = channelMessages;
 
   const firstMessageCached = channelMessages.first();
@@ -43,16 +44,22 @@ export default ((props) => {
   const jumpTargetIsFirstMessage = jumpTargetId === channel.id;
   const canShow = hasNoticeAbove || channelMessages.hasMoreBefore;
 
+  const align = cfg.get("align");
+
   return channelMessages.hasFetched && canShow ? (
     <div
-      className={classNames("jumpToFirstMessage-container", { containerMarginTop: hasNoticeAbove })}
+      className={classNames(
+        "jumpToFirstMessage-container",
+        { containerMarginTop: hasNoticeAbove || unreadCount > 0 },
+        { [align]: align },
+      )}
       style={{
-        visibility: !canShow ? "hidden" : "inherit",
+        visibility: canShow ? "inherit" : "hidden",
       }}>
       <Clickable aria-label="Jump to Top" className={classes.navigator} onClick={handleClick}>
         <div className={classes.button}>
           {loadingMore && jumpTargetIsFirstMessage ? (
-            <Loader type={Loader.Type.SPINNING_CIRCLE} className={classes.jumpSpinner} />
+            <Spinner type={Spinner.Type.SPINNING_CIRCLE} className={classes.jumpSpinner} />
           ) : (
             <DoubleDownArrow className="jumpToFirstMessage-icon" />
           )}

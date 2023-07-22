@@ -4,12 +4,24 @@
   left: 16px;
   right: 16px;
   display: flex;
-  justify-content: center;
   z-index: 1;
   pointer-events: none;
   gap: 8px;
   opacity: 0.95;
   transition: opacity 0.15s;
+}
+
+.jumpToFirstMessage-container.left {
+  justify-content: flex-start;
+}
+
+.jumpToFirstMessage-container.center {
+  justify-content: center;
+}
+
+.jumpToFirstMessage-container.right {
+  justify-content: flex-end;
+  right: 28px;
 }
 
 .jumpToFirstMessage-container.containerMarginTop {
