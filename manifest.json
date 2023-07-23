@@ -13,8 +13,9 @@
     "id": "dev.fedeilleone.JumpToFirstMessage"
   },
   "license": "MIT",
-  "type": "replugged-plugin",
+  "image": "https://i.imgur.com/eb27AfM.gif",
   "source": "https://github.com/FedeIlLeone/JumpToFirstMessage",
+  "type": "replugged-plugin",
   "renderer": "src/index.tsx",
   "plaintextPatches": "src/plaintextPatches.ts"
 }
