@@ -95,7 +95,7 @@ declare class CloudUpload extends Upload {
     reactNativeFileIndex: number,
   );
 
-  public static fromJson: () => void;
+  public static fromJson: (data: Record<string, unknown>) => CloudUpload;
 
   private _abortController: AbortController;
   private _aborted: boolean;
