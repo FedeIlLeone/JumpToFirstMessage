@@ -8,6 +8,8 @@ let stopped = false;
 export function _renderJumpToTopBar(props: MessagesProps): React.ReactNode {
   const { channel, messages, unreadCount } = props;
 
+  if (!channel || !messages) return null;
+
   const forumsOnly = cfg.get("forumsOnly");
   // @ts-expect-error discord-types is terribly outdated
   if (forumsOnly && !channel.isForumPost()) return null;
