@@ -1,7 +1,7 @@
+import JumpToTopBar from "@components/JumpToTopBar";
+import Settings from "@components/Settings";
 import type { MessagesProps } from "@types";
-import JumpToTopBar from "./components/JumpToTopBar";
-import Settings from "./components/Settings";
-import { cfg } from "./utils/PluginSettingsUtils";
+import { cfg } from "@utils/PluginSettingsUtils";
 
 let stopped = false;
 

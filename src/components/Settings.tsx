@@ -1,6 +1,6 @@
+import { cfg } from "@utils/PluginSettingsUtils";
 import type React from "react";
 import { components, util } from "replugged";
-import { cfg } from "../utils/PluginSettingsUtils";
 
 const { SelectItem, SwitchItem } = components;
 

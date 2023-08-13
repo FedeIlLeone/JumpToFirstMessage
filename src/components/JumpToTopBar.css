@@ -28,6 +28,10 @@
   top: 48px;
 }
 
+.jumpToFirstMessage-container.containerMarginTopExtra {
+  top: 88px;
+}
+
 .jumpToFirstMessage-icon {
   width: 16px;
   height: 16px;

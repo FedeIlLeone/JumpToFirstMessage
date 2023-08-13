@@ -1,8 +1,9 @@
+import DoubleDownArrow from "@components/DoubleDownArrow";
+import ChannelSummariesExperiment from "@experiments/ChannelSummaries";
 import type { MessagesProps } from "@types";
+import { cfg } from "@utils/PluginSettingsUtils";
 import classNames from "classnames";
 import { common, components, webpack } from "replugged";
-import DoubleDownArrow from "./DoubleDownArrow";
-import { cfg } from "../utils/PluginSettingsUtils";
 
 import "./JumpToTopBar.css";
 
@@ -34,6 +35,16 @@ export default ((props) => {
   // @ts-expect-error discord-types is terribly outdated x2
   const hasNoticeAbove: boolean = channel.isForumPost() && !firstMessageInPost;
 
+  // Check if the channel can have "channel summaries" and add an extra margin
+  const hasTopicsBarAbove = ChannelSummariesExperiment.canSeeChannelSummaries(channel);
+
+  console.log(ChannelSummariesExperiment);
+
+  const jumpTargetIsFirstMessage = jumpTargetId === channel.id;
+  const canShow = hasNoticeAbove || channelMessages.hasMoreBefore;
+
+  const align = cfg.get("align");
+
   const handleClick = React.useCallback(() => {
     messages.jumpToMessage({
       channelId: channel.id,
@@ -41,16 +52,12 @@ export default ((props) => {
     });
   }, [channel.id]);
 
-  const jumpTargetIsFirstMessage = jumpTargetId === channel.id;
-  const canShow = hasNoticeAbove || channelMessages.hasMoreBefore;
-
-  const align = cfg.get("align");
-
   return channelMessages.hasFetched && canShow ? (
     <div
       className={classNames(
         "jumpToFirstMessage-container",
-        { containerMarginTop: hasNoticeAbove || unreadCount > 0 },
+        { containerMarginTop: hasNoticeAbove || hasTopicsBarAbove || unreadCount > 0 },
+        { containerMarginTopExtra: hasNoticeAbove && hasTopicsBarAbove },
         { [align]: align },
       )}
       style={{
