@@ -38,8 +38,6 @@ export default ((props) => {
   // Check if the channel can have "channel summaries" and add an extra margin
   const hasTopicsBarAbove = ChannelSummariesExperiment.canSeeChannelSummaries(channel);
 
-  console.log(ChannelSummariesExperiment);
-
   const jumpTargetIsFirstMessage = jumpTargetId === channel.id;
   const canShow = hasNoticeAbove || channelMessages.hasMoreBefore;
 
