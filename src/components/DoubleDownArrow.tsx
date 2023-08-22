@@ -6,7 +6,7 @@ interface DoubleDownArrowProps extends React.ComponentPropsWithoutRef<"svg"> {
   width?: number;
 }
 
-export default (props: DoubleDownArrowProps) => {
+export default (props: DoubleDownArrowProps): React.ReactElement => {
   const { color = "currentColor", height = 24, width = 24, ...svgProps } = props;
 
   return (

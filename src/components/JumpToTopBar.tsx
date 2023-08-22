@@ -21,7 +21,7 @@ const classes = await webpack.waitForProps<Record<"button" | "jumpSpinner" | "na
   "navigator",
 );
 
-export default (props: JumpToTopBarProps) => {
+export default (props: JumpToTopBarProps): React.ReactElement | null => {
   const { channel, messages: channelMessages, unreadCount } = props;
   const { jumpTargetId, loadingMore } = channelMessages;
 
@@ -38,10 +38,7 @@ export default (props: JumpToTopBarProps) => {
   const hasNoticeAbove: boolean = channel.isForumPost() && !firstMessageInPost;
 
   // Check if the channel can have "channel summaries" and add an extra margin
-  const hasTopicsBarAbove =
-    ChannelSummariesExperiment &&
-    ChannelSummariesExperiment.canSeeChannelSummaries &&
-    ChannelSummariesExperiment.canSeeChannelSummaries(channel);
+  const hasTopicsBarAbove = ChannelSummariesExperiment?.canSeeChannelSummaries?.(channel);
 
   const jumpTargetIsFirstMessage = jumpTargetId === channel.id;
   const canShow = hasNoticeAbove || channelMessages.hasMoreBefore;
@@ -49,7 +46,7 @@ export default (props: JumpToTopBarProps) => {
   const align = cfg.get("align");
 
   const handleClick = React.useCallback(() => {
-    messages.jumpToMessage({
+    void messages.jumpToMessage({
       channelId: channel.id,
       messageId: channel.id,
     });

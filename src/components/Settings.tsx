@@ -7,7 +7,7 @@ const {
 } = common;
 const { SelectItem, SwitchItem } = components;
 
-export default () => {
+export default (): React.ReactElement => {
   const forumsOnly = util.useSetting(cfg, "forumsOnly");
   const align = util.useSetting(cfg, "align");
 
