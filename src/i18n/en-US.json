@@ -1,0 +1,10 @@
+{
+  "JUMPTOFIRSTMESSAGE_JUMP_BUTTON_A11Y_LABEL": "Jump To Top",
+  "JUMPTOFIRSTMESSAGE_SETTINGS_ALIGNMENT_CENTER": "Center",
+  "JUMPTOFIRSTMESSAGE_SETTINGS_ALIGNMENT_LEFT": "Left",
+  "JUMPTOFIRSTMESSAGE_SETTINGS_ALIGNMENT_NOTE": "The horizontal alignment of the button in the channels.",
+  "JUMPTOFIRSTMESSAGE_SETTINGS_ALIGNMENT_RIGHT": "Right",
+  "JUMPTOFIRSTMESSAGE_SETTINGS_ALIGNMENT_TITLE": "Button Alignment",
+  "JUMPTOFIRSTMESSAGE_SETTINGS_FORUMS_ONLY_NOTE": "Whether to display the button in forum posts only. It's recommended to leave this option enabled.",
+  "JUMPTOFIRSTMESSAGE_SETTINGS_FORUMS_ONLY_TITLE": "Only show in forum channels"
+}

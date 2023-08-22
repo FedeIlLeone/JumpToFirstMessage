@@ -7,19 +7,21 @@ import { common, components, webpack } from "replugged";
 
 import "./JumpToTopBar.css";
 
-const { React, messages } = common;
+const {
+  i18n: { Messages },
+  React,
+  messages,
+} = common;
 const { Clickable, Loader: Spinner } = components;
 
 type JumpToTopBarProps = Pick<MessagesProps, "channel" | "messages" | "unreadCount">;
-
-export type JumpToTopBarType = React.FC<JumpToTopBarProps>;
 
 const classes = await webpack.waitForProps<Record<"button" | "jumpSpinner" | "navigator", string>>(
   "jumpSpinner",
   "navigator",
 );
 
-export default ((props) => {
+export default (props: JumpToTopBarProps) => {
   const { channel, messages: channelMessages, unreadCount } = props;
   const { jumpTargetId, loadingMore } = channelMessages;
 
@@ -36,7 +38,10 @@ export default ((props) => {
   const hasNoticeAbove: boolean = channel.isForumPost() && !firstMessageInPost;
 
   // Check if the channel can have "channel summaries" and add an extra margin
-  const hasTopicsBarAbove = ChannelSummariesExperiment.canSeeChannelSummaries(channel);
+  const hasTopicsBarAbove =
+    ChannelSummariesExperiment &&
+    ChannelSummariesExperiment.canSeeChannelSummaries &&
+    ChannelSummariesExperiment.canSeeChannelSummaries(channel);
 
   const jumpTargetIsFirstMessage = jumpTargetId === channel.id;
   const canShow = hasNoticeAbove || channelMessages.hasMoreBefore;
@@ -61,7 +66,10 @@ export default ((props) => {
       style={{
         visibility: canShow ? "inherit" : "hidden",
       }}>
-      <Clickable aria-label="Jump to Top" className={classes.navigator} onClick={handleClick}>
+      <Clickable
+        aria-label={Messages.JUMPTOFIRSTMESSAGE_JUMP_BUTTON_A11Y_LABEL}
+        className={classes.navigator}
+        onClick={handleClick}>
         <div className={classes.button}>
           {loadingMore && jumpTargetIsFirstMessage ? (
             <Spinner type={Spinner.Type.SPINNING_CIRCLE} className={classes.jumpSpinner} />
@@ -72,4 +80,4 @@ export default ((props) => {
       </Clickable>
     </div>
   ) : null;
-}) as JumpToTopBarType;
+};

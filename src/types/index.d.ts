@@ -42,7 +42,7 @@ interface FileUpload {
   totalPreCompressionSize: number;
 }
 
-interface MessagesProps {
+export interface MessagesProps {
   canChat?: boolean;
   channel: Channel;
   channelStream: ChannelStream[];

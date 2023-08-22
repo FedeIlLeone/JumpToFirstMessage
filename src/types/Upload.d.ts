@@ -28,6 +28,7 @@ interface ItemReactNative {
   filename: string;
   isClip?: boolean;
   isRemix: boolean;
+  isThumbnail: boolean;
   mimeType: string;
   origin: string;
   platform: UploadPlatform.REACT_NATIVE;
@@ -48,14 +49,14 @@ declare class Upload extends EventEmitter {
   public constructor(item: Item, showLargeMessageDialog: boolean);
 
   public classification?: FileType;
-  public description: null;
+  public description: string | null;
   public durationSecs?: number;
   public filename: string;
   public id: string;
   public isClip: boolean | undefined;
   public isImage: boolean;
   public isRemix?: boolean;
-  public isThumbnail?: boolean;
+  public isThumbnail: boolean | undefined;
   public isVideo: boolean;
   public item: Item;
   public mimeType: string;

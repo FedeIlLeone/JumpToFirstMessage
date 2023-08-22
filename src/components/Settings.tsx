@@ -1,29 +1,30 @@
 import { cfg } from "@utils/PluginSettingsUtils";
 import type React from "react";
-import { components, util } from "replugged";
+import { common, components, util } from "replugged";
 
+const {
+  i18n: { Messages },
+} = common;
 const { SelectItem, SwitchItem } = components;
 
-export default (): React.ReactElement => {
+export default () => {
   const forumsOnly = util.useSetting(cfg, "forumsOnly");
   const align = util.useSetting(cfg, "align");
 
   return (
     <>
-      <SwitchItem
-        {...forumsOnly}
-        note="Whether to display the button in forum posts only. It's recommended to leave this option enabled.">
-        Only show in forum channels
+      <SwitchItem {...forumsOnly} note={Messages.JUMPTOFIRSTMESSAGE_SETTINGS_FORUMS_ONLY_NOTE}>
+        {Messages.JUMPTOFIRSTMESSAGE_SETTINGS_FORUMS_ONLY_TITLE}
       </SwitchItem>
       <SelectItem
         {...align}
-        note="The horizontal alignment of the button in the channels."
+        note={Messages.JUMPTOFIRSTMESSAGE_SETTINGS_ALIGNMENT_NOTE}
         options={[
-          { label: "Left", value: "left" },
-          { label: "Center", value: "center" },
-          { label: "Right", value: "right" },
+          { label: Messages.JUMPTOFIRSTMESSAGE_SETTINGS_ALIGNMENT_LEFT, value: "left" },
+          { label: Messages.JUMPTOFIRSTMESSAGE_SETTINGS_ALIGNMENT_CENTER, value: "center" },
+          { label: Messages.JUMPTOFIRSTMESSAGE_SETTINGS_ALIGNMENT_RIGHT, value: "right" },
         ]}>
-        Button Alignment
+        {Messages.JUMPTOFIRSTMESSAGE_SETTINGS_ALIGNMENT_TITLE}
       </SelectItem>
     </>
   );

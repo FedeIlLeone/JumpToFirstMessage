@@ -6,9 +6,7 @@ interface DoubleDownArrowProps extends React.ComponentPropsWithoutRef<"svg"> {
   width?: number;
 }
 
-export type DoubleDownArrowType = React.FC<DoubleDownArrowProps>;
-
-export default ((props) => {
+export default (props: DoubleDownArrowProps) => {
   const { color = "currentColor", height = 24, width = 24, ...svgProps } = props;
 
   return (
@@ -35,4 +33,4 @@ export default ((props) => {
       />
     </svg>
   );
-}) as DoubleDownArrowType;
+};

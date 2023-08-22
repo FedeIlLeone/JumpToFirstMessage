@@ -34,6 +34,8 @@
       "@components/*": ["src/components/*"],
       "@experiments": ["src/experiments/"],
       "@experiments/*": ["src/experiments/*"],
+      "@i18n": ["src/i18n/"],
+      "@i18n/*": ["src/i18n/*"],
       "@types": ["src/types/"],
       "@types/*": ["src/types/*"],
       "@utils": ["src/utils/"],
