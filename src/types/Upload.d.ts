@@ -1,4 +1,4 @@
-import type EventEmitter from "events";
+import EventEmitter from "events";
 
 declare enum UploadPlatform {
   REACT_NATIVE,
@@ -43,9 +43,9 @@ interface ItemWeb {
   platform: UploadPlatform.WEB;
 }
 
-type Item = ItemReactNative | ItemWeb;
+export type Item = ItemReactNative | ItemWeb;
 
-declare class Upload extends EventEmitter {
+export declare class Upload extends EventEmitter {
   public constructor(item: Item, showLargeMessageDialog: boolean);
 
   public classification?: FileType;

@@ -6,5 +6,6 @@
   "JUMPTOFIRSTMESSAGE_SETTINGS_ALIGNMENT_RIGHT": "Right",
   "JUMPTOFIRSTMESSAGE_SETTINGS_ALIGNMENT_TITLE": "Button Alignment",
   "JUMPTOFIRSTMESSAGE_SETTINGS_FORUMS_ONLY_NOTE": "Whether to display the button in forum posts only. It's recommended to leave this option enabled.",
-  "JUMPTOFIRSTMESSAGE_SETTINGS_FORUMS_ONLY_TITLE": "Only show in forum channels"
+  "JUMPTOFIRSTMESSAGE_SETTINGS_FORUMS_ONLY_TITLE": "Only show in forum channels",
+  "JUMPTOFIRSTMESSAGE_SETTINGS_JUMP_TO_UNREAD_NOTE": "Will jump to the last unread message, if available, before jumping to the first message of the channel."
 }

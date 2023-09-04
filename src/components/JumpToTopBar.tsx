@@ -1,5 +1,6 @@
 import DoubleDownArrow from "@components/DoubleDownArrow";
 import ChannelSummariesExperiment from "@experiments/ChannelSummaries";
+import ReadStateStore from "@stores/ReadStateStore";
 import type { MessagesProps } from "@types";
 import { cfg } from "@utils/PluginSettingsUtils";
 import classNames from "classnames";
@@ -9,7 +10,6 @@ import "./JumpToTopBar.css";
 
 const {
   i18n: { Messages },
-  React,
   messages,
 } = common;
 const { Clickable, Loader: Spinner } = components;
@@ -25,10 +25,9 @@ export default (props: JumpToTopBarProps): React.ReactElement | null => {
   const { channel, messages: channelMessages, unreadCount } = props;
   const { jumpTargetId, loadingMore } = channelMessages;
 
-  const firstMessageCached = channelMessages.first();
-
   // Check if the first message cached is the first message in a forum post
   // if not, we need to add an extra margin to the top of the container
+  const firstMessageCached = channelMessages.first();
   const firstMessageInPost: boolean =
     channelMessages.length > 0 && firstMessageCached
       ? // @ts-expect-error discord-types is terribly outdated
@@ -38,19 +37,16 @@ export default (props: JumpToTopBarProps): React.ReactElement | null => {
   const hasNoticeAbove: boolean = channel.isForumPost() && !firstMessageInPost;
 
   // Check if the channel can have "channel summaries" and add an extra margin
-  const hasTopicsBarAbove = ChannelSummariesExperiment?.canSeeChannelSummaries?.(channel);
+  // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+  const hasTopicsBarAbove = ChannelSummariesExperiment.canSeeChannelSummaries?.(channel);
+
+  const unreadMessageId = ReadStateStore.getOldestUnreadMessageId(channel.id) ?? "0";
 
   const jumpTargetIsFirstMessage = jumpTargetId === channel.id;
+  const jumpTargetIsUnreadMessage = jumpTargetId === unreadMessageId;
   const canShow = hasNoticeAbove || channelMessages.hasMoreBefore;
 
   const align = cfg.get("align");
-
-  const handleClick = React.useCallback(() => {
-    void messages.jumpToMessage({
-      channelId: channel.id,
-      messageId: channel.id,
-    });
-  }, [channel.id]);
 
   return channelMessages.hasFetched && canShow ? (
     <div
@@ -59,16 +55,22 @@ export default (props: JumpToTopBarProps): React.ReactElement | null => {
         { containerMarginTop: hasNoticeAbove || hasTopicsBarAbove || unreadCount > 0 },
         { containerMarginTopExtra: hasNoticeAbove && hasTopicsBarAbove },
         { [align]: align },
-      )}
-      style={{
-        visibility: canShow ? "inherit" : "hidden",
-      }}>
+      )}>
       <Clickable
         aria-label={Messages.JUMPTOFIRSTMESSAGE_JUMP_BUTTON_A11Y_LABEL}
         className={classes.navigator}
-        onClick={handleClick}>
+        onClick={() => {
+          const jumpToUnread = cfg.get("jumpToUnread");
+          const messageIdUnread = jumpTargetIsUnreadMessage ? channel.id : unreadMessageId;
+          const messageId = jumpToUnread ? messageIdUnread : channel.id;
+
+          void messages.jumpToMessage({
+            channelId: channel.id,
+            messageId,
+          });
+        }}>
         <div className={classes.button}>
-          {loadingMore && jumpTargetIsFirstMessage ? (
+          {loadingMore && (jumpTargetIsFirstMessage || jumpTargetIsUnreadMessage) ? (
             <Spinner type={Spinner.Type.SPINNING_CIRCLE} className={classes.jumpSpinner} />
           ) : (
             <DoubleDownArrow className="jumpToFirstMessage-icon" />

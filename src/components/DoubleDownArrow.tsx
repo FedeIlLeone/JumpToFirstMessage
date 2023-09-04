@@ -1,10 +1,6 @@
 import type React from "react";
 
-interface DoubleDownArrowProps extends React.ComponentPropsWithoutRef<"svg"> {
-  color?: string;
-  height?: number;
-  width?: number;
-}
+type DoubleDownArrowProps = React.ComponentPropsWithoutRef<"svg">;
 
 export default (props: DoubleDownArrowProps): React.ReactElement => {
   const { color = "currentColor", height = 24, width = 24, ...svgProps } = props;

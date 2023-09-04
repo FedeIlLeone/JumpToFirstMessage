@@ -10,6 +10,7 @@ let stopped = false;
 export function _renderJumpToTopBar(props: MessagesProps): React.ReactNode {
   const { channel, messages, unreadCount } = props;
 
+  // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
   if (!channel || !messages) return null;
 
   const forumsOnly = cfg.get("forumsOnly");

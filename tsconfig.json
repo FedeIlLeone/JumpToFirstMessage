@@ -36,6 +36,8 @@
       "@experiments/*": ["src/experiments/*"],
       "@i18n": ["src/i18n/"],
       "@i18n/*": ["src/i18n/*"],
+      "@stores": ["src/stores/"],
+      "@stores/*": ["src/stores/*"],
       "@types": ["src/types/"],
       "@types/*": ["src/types/*"],
       "@utils": ["src/utils/"],

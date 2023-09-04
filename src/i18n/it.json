@@ -6,5 +6,6 @@
   "JUMPTOFIRSTMESSAGE_SETTINGS_ALIGNMENT_RIGHT": "Destra",
   "JUMPTOFIRSTMESSAGE_SETTINGS_ALIGNMENT_TITLE": "Allineamento del pulsante",
   "JUMPTOFIRSTMESSAGE_SETTINGS_FORUMS_ONLY_NOTE": "Se visualizzare il pulsante solo nei post del forum. Si consiglia di lasciare abilitata questa opzione.",
-  "JUMPTOFIRSTMESSAGE_SETTINGS_FORUMS_ONLY_TITLE": "Mostra solo nei canali forum"
+  "JUMPTOFIRSTMESSAGE_SETTINGS_FORUMS_ONLY_TITLE": "Mostra solo nei canali forum",
+  "JUMPTOFIRSTMESSAGE_SETTINGS_JUMP_TO_UNREAD_NOTE": "Andrà all'ultimo messaggio non letto, se disponibile, prima di passare al primo messaggio del canale."
 }

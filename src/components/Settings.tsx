@@ -9,12 +9,16 @@ const { SelectItem, SwitchItem } = components;
 
 export default (): React.ReactElement => {
   const forumsOnly = util.useSetting(cfg, "forumsOnly");
+  const jumpToUnread = util.useSetting(cfg, "jumpToUnread");
   const align = util.useSetting(cfg, "align");
 
   return (
     <>
       <SwitchItem {...forumsOnly} note={Messages.JUMPTOFIRSTMESSAGE_SETTINGS_FORUMS_ONLY_NOTE}>
         {Messages.JUMPTOFIRSTMESSAGE_SETTINGS_FORUMS_ONLY_TITLE}
+      </SwitchItem>
+      <SwitchItem {...jumpToUnread} note={Messages.JUMPTOFIRSTMESSAGE_SETTINGS_JUMP_TO_UNREAD_NOTE}>
+        {Messages.JUMP_TO_LAST_UNREAD_MESSAGE}
       </SwitchItem>
       <SelectItem
         {...align}

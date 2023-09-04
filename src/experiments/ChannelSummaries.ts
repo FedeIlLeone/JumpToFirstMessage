@@ -25,7 +25,7 @@ export default {
   channelEligibleForSummaries: webpack.getFunctionBySource(mod, /return \w\(\w,!/),
   useChannelSummariesExperiment: webpack.getFunctionBySource(
     mod,
-    /guildId:.+?}\).+?trackExposure\({}\)/,
+    /location:"\w+"}\).+?trackExposure\({location/,
   ),
   useGuildEligibleForSummaries: webpack.getFunctionBySource(mod, /trackExposure\({guildId.+?}\)\)/),
 } as ChannelSummariesExperimentMod;
