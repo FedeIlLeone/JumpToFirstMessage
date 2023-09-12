@@ -8,10 +8,7 @@ import { common, components, webpack } from "replugged";
 
 import "./JumpToTopBar.css";
 
-const {
-  i18n: { Messages },
-  messages,
-} = common;
+const { i18n, messages } = common;
 const { Clickable, Loader: Spinner } = components;
 
 type JumpToTopBarProps = Pick<MessagesProps, "channel" | "messages" | "unreadCount">;
@@ -57,7 +54,7 @@ export default (props: JumpToTopBarProps): React.ReactElement | null => {
         { [align]: align },
       )}>
       <Clickable
-        aria-label={Messages.JUMPTOFIRSTMESSAGE_JUMP_BUTTON_A11Y_LABEL}
+        aria-label={i18n.Messages.JUMPTOFIRSTMESSAGE_JUMP_BUTTON_A11Y_LABEL}
         className={classes.navigator}
         onClick={() => {
           const jumpToUnread = cfg.get("jumpToUnread");

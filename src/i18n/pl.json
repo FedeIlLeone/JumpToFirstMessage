@@ -1,0 +1,11 @@
+{
+  "JUMPTOFIRSTMESSAGE_JUMP_BUTTON_A11Y_LABEL": "Idź na górę",
+  "JUMPTOFIRSTMESSAGE_SETTINGS_ALIGNMENT_CENTER": "Środek",
+  "JUMPTOFIRSTMESSAGE_SETTINGS_ALIGNMENT_LEFT": "Lewo",
+  "JUMPTOFIRSTMESSAGE_SETTINGS_ALIGNMENT_NOTE": "Wyrównanie horyzontalne przycisku w kanałach.",
+  "JUMPTOFIRSTMESSAGE_SETTINGS_ALIGNMENT_RIGHT": "Prawo",
+  "JUMPTOFIRSTMESSAGE_SETTINGS_ALIGNMENT_TITLE": "Wyrównanie przycisku",
+  "JUMPTOFIRSTMESSAGE_SETTINGS_FORUMS_ONLY_NOTE": "Jeśli wyświetlić przycisk tylko w postach na forum. Zaleca się pozostawienie tej opcji włączonej.",
+  "JUMPTOFIRSTMESSAGE_SETTINGS_FORUMS_ONLY_TITLE": "Pokaż tylko w kanałach forum",
+  "JUMPTOFIRSTMESSAGE_SETTINGS_JUMP_TO_UNREAD_NOTE": "Przejdzie do ostatniej nieprzeczytanej wiadomości, jeśli jest dostępna, przed przejściem do pierwszej wiadomości na kanale."
+}
