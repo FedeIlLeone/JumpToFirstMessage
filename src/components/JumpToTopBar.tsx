@@ -1,4 +1,4 @@
-import DoubleDownArrow from "@components/DoubleDownArrow";
+import DoubleDownArrow from "@components/webpack/DoubleDownArrow";
 import ChannelSummariesExperiment from "@experiments/ChannelSummaries";
 import ReadStateStore from "@stores/ReadStateStore";
 import type { MessagesProps } from "@types";
