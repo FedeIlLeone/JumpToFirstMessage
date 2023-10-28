@@ -1,6 +1,6 @@
 {
   "name": "jumptofirstmessage",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Adds a button to jump to the first message of a channel.",
   "engines": {
     "node": ">=18.0.0",
