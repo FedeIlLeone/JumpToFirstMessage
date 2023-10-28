@@ -4,11 +4,11 @@ const pluginExports = `window.replugged.plugins.getExports("dev.fedeilleone.Jump
 
 const patches: types.PlaintextPatch[] = [
   {
-    find: /\(\)\.messagesWrapper,/,
+    find: "navigationDescription",
     replacements: [
       {
         match: /(group-spacing.+?children:\[)/,
-        replace: (_, prefix) => `${prefix}${pluginExports}._renderJumpToTopBar(e),`,
+        replace: (_, prefix) => `${prefix}${pluginExports}._renderJumpToTopBar(arguments[0]),`,
       },
     ],
   },
