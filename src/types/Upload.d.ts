@@ -37,8 +37,8 @@ interface ItemReactNative {
 }
 
 interface ItemWeb {
-  file: File;
   clip?: boolean;
+  file: File;
   isThumbnail: boolean;
   platform: UploadPlatform.WEB;
 }
@@ -49,11 +49,11 @@ export declare class Upload extends EventEmitter {
   public constructor(item: Item, showLargeMessageDialog: boolean);
 
   public classification?: FileType;
+  public clip: boolean | undefined;
   public description: string | null;
   public durationSecs?: number;
   public filename: string;
   public id: string;
-  public clip: boolean | undefined;
   public isImage: boolean;
   public isRemix?: boolean;
   public isThumbnail: boolean | undefined;
