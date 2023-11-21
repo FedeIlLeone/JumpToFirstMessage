@@ -8,7 +8,7 @@ const patches: types.PlaintextPatch[] = [
     replacements: [
       {
         match: /(group-spacing.+?children:\[)/,
-        replace: (_, prefix) => `${prefix}${pluginExports}._renderJumpToTopBar(arguments[0]),`,
+        replace: (_, prefix) => `${prefix}${pluginExports}?._renderJumpToTopBar(arguments[0]),`,
       },
     ],
   },

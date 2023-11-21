@@ -37,8 +37,8 @@ interface ChannelOverride {
 }
 
 interface GuildChannelUnreadState {
-  hasNotableUnread: boolean;
   mentionCount: number;
+  unread: boolean;
 }
 
 interface MuteConfig {
@@ -102,6 +102,7 @@ type SerializedReadState = Omit<
   | "oldestUnreadMessageIdStale"
 > &
   Partial<Pick<CompleteSerializedReadState, "_isActiveThread" | "_isJoinedThread" | "_isThread">>;
+
 declare class ReadState {
   public constructor(channelId: string, readStateType?: ReadStateTypes);
 
@@ -185,7 +186,6 @@ declare class ReadState {
   public getGuildChannelUnreadState: (
     channel: Channel,
     optInEnabledForGuild?: boolean,
-    guildUnreadsExperimentEnabled?: boolean,
     channelOverrides?: Record<string, ChannelOverride>,
     channelMuted?: boolean,
     channelUnread?: boolean,
@@ -194,7 +194,6 @@ declare class ReadState {
   public guessAckMessageId: () => string | null;
   public handleGuildEventRemoval: (guildId: string, guildScheduledEventId: string) => void;
   public hasMentions: () => boolean;
-  public hasNotableUnread: () => boolean;
   public hasRecentlyVisitedAndRead: () => boolean;
   public hasUnread: () => boolean;
   public hasUnreadOrMentions: () => boolean;
@@ -220,7 +219,6 @@ export interface ReadStateStore extends Store {
   getGuildChannelUnreadState: (
     channel: Channel,
     optInEnabledForGuild?: boolean,
-    guildUnreadsExperimentEnabled?: boolean,
     channelOverrides?: Record<string, ChannelOverride>,
     channelMuted?: boolean,
     channelUnread?: boolean,
@@ -234,10 +232,8 @@ export interface ReadStateStore extends Store {
   getReadStatesByChannel: () => Record<string, ReadState>;
   getTrackedAckMessageId: (channelId: string, readStateType?: ReadStateTypes) => string | null;
   getUnreadCount: (channelId: string, readStateType?: ReadStateTypes) => number;
-  hasNotableUnread: (channelId: string, readStateType?: ReadStateTypes) => boolean;
   hasOpenedThread: (channelId: string, readStateType?: ReadStateTypes) => boolean;
   hasRecentlyVisitedAndRead: (channelId: string, readStateType?: ReadStateTypes) => boolean;
-  hasRelevantUnread: (channelId: string, readStateType?: ReadStateTypes) => boolean;
   hasTrackedUnread: (channelId: string, readStateType?: ReadStateTypes) => boolean;
   hasUnread: (channelId: string, readStateType?: ReadStateTypes) => boolean;
   hasUnreadPins: (channelId: string) => boolean;

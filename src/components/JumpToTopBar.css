@@ -14,11 +14,9 @@
 .jumpToFirstMessage-container.left {
   justify-content: flex-start;
 }
-
 .jumpToFirstMessage-container.center {
   justify-content: center;
 }
-
 .jumpToFirstMessage-container.right {
   justify-content: flex-end;
   right: 28px;
@@ -27,9 +25,63 @@
 .jumpToFirstMessage-container.containerMarginTop {
   top: 48px;
 }
-
 .jumpToFirstMessage-container.containerMarginTopExtra {
   top: 88px;
+}
+
+.jumpToFirstMessage-navigator {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  pointer-events: auto;
+  border-radius: 32px;
+  overflow: hidden;
+}
+
+.jumpToFirstMessage-navigator:hover .jumpToFirstMessage-button {
+  color: var(--interactive-active);
+}
+
+.theme-dark .jumpToFirstMessage-navigator {
+  background-color: var(--background-floating);
+}
+.theme-dark .jumpToFirstMessage-navigator:hover {
+  background-color: var(--background-tertiary);
+}
+
+.theme-light .jumpToFirstMessage-navigator {
+  background-color: var(--background-secondary);
+}
+.theme-light .jumpToFirstMessage-navigator:hover {
+  background-color: var(--background-secondary-alt);
+}
+
+.jumpToFirstMessage-button {
+  height: 16px;
+  padding: 8px;
+  cursor: pointer;
+  color: var(--interactive-normal);
+  transition: color.1s;
+  border-radius: 50%;
+}
+
+.theme-dark .jumpToFirstMessage-button {
+  background-color: var(--background-floating);
+}
+.theme-dark .jumpToFirstMessage-button:hover {
+  background-color: var(--background-tertiary);
+}
+
+.theme-light .jumpToFirstMessage-button {
+  background-color: var(--background-secondary);
+}
+.theme-light .jumpToFirstMessage-button:hover {
+  background-color: var(--background-secondary-alt);
+}
+
+.jumpToFirstMessage-jumpSpinner {
+  width: 16px;
+  height: 16px;
 }
 
 .jumpToFirstMessage-icon {

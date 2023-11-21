@@ -1,10 +1,10 @@
 import DoubleDownArrow from "@components/webpack/DoubleDownArrow";
-import ChannelSummariesExperiment from "@experiments/ChannelSummaries";
+import ChannelSummariesExperiment from "@experiments/ChannelSummariesExperiment";
 import ReadStateStore from "@stores/ReadStateStore";
 import type { MessagesProps } from "@types";
 import { cfg } from "@utils/PluginSettingsUtils";
 import classNames from "classnames";
-import { common, components, webpack } from "replugged";
+import { common, components } from "replugged";
 
 import "./JumpToTopBar.css";
 
@@ -12,11 +12,6 @@ const { i18n, messages } = common;
 const { Clickable, Loader: Spinner } = components;
 
 type JumpToTopBarProps = Pick<MessagesProps, "channel" | "messages" | "unreadCount">;
-
-const classes = await webpack.waitForProps<Record<"button" | "jumpSpinner" | "navigator", string>>(
-  "jumpSpinner",
-  "navigator",
-);
 
 export default (props: JumpToTopBarProps): React.ReactElement | null => {
   const { channel, messages: channelMessages, unreadCount } = props;
@@ -55,7 +50,7 @@ export default (props: JumpToTopBarProps): React.ReactElement | null => {
       )}>
       <Clickable
         aria-label={i18n.Messages.JUMPTOFIRSTMESSAGE_JUMP_BUTTON_A11Y_LABEL}
-        className={classes.navigator}
+        className="jumpToFirstMessage-navigator"
         onClick={() => {
           const jumpToUnread = cfg.get("jumpToUnread");
           const messageIdUnread = jumpTargetIsUnreadMessage ? channel.id : unreadMessageId;
@@ -66,9 +61,12 @@ export default (props: JumpToTopBarProps): React.ReactElement | null => {
             messageId,
           });
         }}>
-        <div className={classes.button}>
+        <div className="jumpToFirstMessage-button">
           {loadingMore && (jumpTargetIsFirstMessage || jumpTargetIsUnreadMessage) ? (
-            <Spinner type={Spinner.Type.SPINNING_CIRCLE} className={classes.jumpSpinner} />
+            <Spinner
+              type={Spinner.Type.SPINNING_CIRCLE}
+              className="jumpToFirstMessage-jumpSpinner"
+            />
           ) : (
             <DoubleDownArrow className="jumpToFirstMessage-icon" />
           )}

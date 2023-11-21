@@ -26,7 +26,7 @@ interface ItemReactNative {
   durationSecs: number;
   file: File;
   filename: string;
-  isClip?: boolean;
+  clip?: boolean;
   isRemix: boolean;
   isThumbnail: boolean;
   mimeType: string;
@@ -38,7 +38,7 @@ interface ItemReactNative {
 
 interface ItemWeb {
   file: File;
-  isClip?: boolean;
+  clip?: boolean;
   isThumbnail: boolean;
   platform: UploadPlatform.WEB;
 }
@@ -53,7 +53,7 @@ export declare class Upload extends EventEmitter {
   public durationSecs?: number;
   public filename: string;
   public id: string;
-  public isClip: boolean | undefined;
+  public clip: boolean | undefined;
   public isImage: boolean;
   public isRemix?: boolean;
   public isThumbnail: boolean | undefined;

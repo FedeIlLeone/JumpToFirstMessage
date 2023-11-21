@@ -1,7 +1,7 @@
 import type { Channel, Guild } from "discord-types/general";
 import { webpack } from "replugged";
 
-interface ChannelSummariesExperimentMod {
+interface ChannelSummariesExperiment {
   canGuildUseConversationSummaries: (guild: Guild, checkIfIsEnabled?: boolean) => boolean;
   canSeeChannelSummaries: (
     channel: Channel,
@@ -14,7 +14,6 @@ interface ChannelSummariesExperimentMod {
     track?: boolean,
     ignoreChannelSettings?: boolean,
   ) => boolean;
-  useGuildEligibleForSummaries: (guild: Guild, track?: boolean) => boolean;
 }
 
-export default await webpack.waitForProps<ChannelSummariesExperimentMod>("canSeeChannelSummaries");
+export default await webpack.waitForProps<ChannelSummariesExperiment>("canSeeChannelSummaries");

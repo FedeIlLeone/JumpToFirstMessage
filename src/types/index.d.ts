@@ -26,6 +26,7 @@ interface ChannelStream {
   type: ChannelStreamTypes;
   unreadId?: string;
 }
+
 interface FileUpload {
   attachmentsCount: number;
   channelId: string;
