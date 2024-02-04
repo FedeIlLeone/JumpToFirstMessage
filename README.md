@@ -1,3 +1,7 @@
+:warning: **Development moved at https://github.com/FedeIlLeone/replugged-plugins**
+
+---
+
 # JumpToFirstMessage
 
 Replugged plugin that adds a button to jump to the first message of a channel.
